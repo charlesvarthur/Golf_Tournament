@@ -55,4 +55,4 @@ player_scores = player_scores.sort_values(by=['stableford_score'], ascending=Fal
 player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
 player_scores.to_latex(index=False)
 st.subheader('Tournament Table')
-st.table(player_scores)
+st.dataframe(player_scores, use_container_width=True)
