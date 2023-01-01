@@ -70,7 +70,7 @@ round_dates = round_dates['round_date'].values.tolist()
 datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
 
 #Fig 2 - Stroke score for each player for each hole of the specified course. 
-round_par = pd.DataFrame(full_stats.loc[(full_stats['course_name'] == course_var) & (full_stats['round_date'] == datebox), ['course_name','par','score','hole_number']])
+round_par = pd.DataFrame(full_stats.loc[(full_stats['course_name'] == course_var) & (full_stats['round_date'] == datebox), ['player_id','course_name','par','score','hole_number']])
 #st.write(round_par)
 fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
     x = 'hole_number', y = 'par'
