@@ -44,5 +44,6 @@ full_with_stableford = pd.DataFrame(full_stats)
 full_with_stableford['stableford_score'] = stableford
 #st.write(full_with_stableford)
 
-player_scores = full_with_stableford.loc[:,['player_id','stableford_score']].groupby(by=['player_id']).sort_values(by=['stableford_score'], ascending=True).sum()
+player_scores = full_with_stableford.loc[:,['player_id','stableford_score']].groupby(by=['player_id']).sum()
+player_scores = player_scores.sort_values(by=['stableford_score'], ascending=True)
 st.write(player_scores)
