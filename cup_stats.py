@@ -27,3 +27,20 @@ full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_
 st.write(full_stats.head(5))
 
 #Figure 1 - Leaderboard Table
+stableford = []
+for rows in full_stats:
+    if full_stats['score_vs_par'] >= 2:
+        stableford.append(0)
+    elif full_stats['score_vs_par'] == 1:
+        stableford.append(1)
+    elif full_stats['score_vs_par'] == 0:
+        stableford.append(2)
+    elif full_stats['score_vs_par'] == int('-1'):
+        stableford.append(3)
+    elif full_stats['score_vs_par'] <= int('-2'):
+        stableford.append(4) 
+
+full_with_stableford = pd.DataFrame(full_stats)
+full_with_stableford['stableford_score'] = stableford
+
+st.write(full_with_stableford.head(5))
