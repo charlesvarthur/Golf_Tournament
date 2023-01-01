@@ -28,16 +28,16 @@ st.write(full_stats.head(5))
 
 #Figure 1 - Leaderboard Table
 stableford = []
-for rows in full_stats:
-    if full_stats['score_vs_par'] >= 2:
+for rows in full_stats['score_vs_par']:
+    if rows >= 2:
         stableford.append(0)
-    elif full_stats['score_vs_par'] == 1:
+    elif rows == 1:
         stableford.append(1)
-    elif full_stats['score_vs_par'] == 0:
+    elif rows == 0:
         stableford.append(2)
-    elif full_stats['score_vs_par'] == int('-1'):
+    elif rows == int('-1'):
         stableford.append(3)
-    elif full_stats['score_vs_par'] <= int('-2'):
+    elif rows <= int('-2'):
         stableford.append(4) 
 
 full_with_stableford = pd.DataFrame(full_stats)
