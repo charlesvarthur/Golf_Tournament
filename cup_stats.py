@@ -14,11 +14,11 @@ st.write('Welcome to the stats page for the Sadomasochism Cup.'
 
 
 scoring = ('Stablesford scoring system is as follows:<br>'
-        '<ul><li><strong>0 Points</strong> - Double Bogey or higher</li>'
-        '<li><strong>1 Point</strong> - Bogey</li>'
-        '<li><strong>2 Points</strong> - Par</li>'
-        '<li><strong>3 Points</strong> - Birdie</li>'
-        '<li><strong>4 Points</strong> - Eagle or higher</li></ul>')
+        '<ul><li><strong>0 Points</strong> - Triple Bogey or higher</li>'
+        '<li><strong>1 Point</strong> - Double Bogey</li>'
+        '<li><strong>2 Points</strong> - Bogey</li>'
+        '<li><strong>3 Points</strong> - Par </li>'
+        '<li><strong>4 Points</strong> - Birdie or higher</li></ul>')
 
 st.markdown(scoring,unsafe_allow_html=True) 
 
@@ -29,15 +29,15 @@ st.write(full_stats.head(5))
 #Figure 1 - Leaderboard Table
 stableford = []
 for rows in full_stats['score_vs_par']:
-    if rows >= 2:
+    if rows >= 3:
         stableford.append(0)
-    elif rows == 1:
+    elif rows == 2:
         stableford.append(1)
-    elif rows == 0:
+    elif rows == 1:
         stableford.append(2)
-    elif rows == int('-1'):
+    elif rows == 0:
         stableford.append(3)
-    elif rows <= int('-2'):
+    elif rows <= int('-1'):
         stableford.append(4) 
 
 full_with_stableford = pd.DataFrame(full_stats)
