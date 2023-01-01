@@ -83,3 +83,4 @@ fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
 )
 st.altair_chart(fig_5_layer, use_container_width=True)
 
+st.write(round_par)
