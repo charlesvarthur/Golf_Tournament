@@ -14,10 +14,10 @@ st.write('Welcome to the stats page for the Sadomasochism Cup.'
 
 
 scoring = ('Stablesford scoring system is as follows:<br>'
-        '<ul><li> 0 Points - Double Bogey or higher</li>'
-        '<li> 1 Point - Bogey</li>'
-        '<li> 2 Points - Par</li>'
-        '<li> 3 Points - Birdie</li>'
-        '<li> 4 Points - Eagle or higher</li></ul>')
+        '<ul><li><strong>0 Points</strong> - Double Bogey or higher</li>'
+        '<li><strong>1 Point</strong> - Bogey</li>'
+        '<li><strong>2 Points</strong> - Par</li>'
+        '<li><strong>3 Points</strong> - Birdie</li>'
+        '<li><strong>4 Points</strong> - Eagle or higher</li></ul>')
 
-st.markdown(scoring,unsafe_allow_html=True)
+st.markdown(scoring,unsafe_allow_html=True) 
