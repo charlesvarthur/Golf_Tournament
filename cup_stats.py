@@ -15,6 +15,8 @@ st.write('Welcome to the stats page for the Sadomasochism Cup.'
         'however this page will also be displaying stroke score stats for each participating player. This is for information only.')
 
 
+
+st.subheader('Scoring')
 scoring = ('Stableford scoring system is as follows:<br>'
         '<ul><li><strong>0 Points</strong> - Triple Bogey or higher</li>'
         '<li><strong>1 Point</strong> - Double Bogey</li>'
