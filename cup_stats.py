@@ -20,4 +20,4 @@ scoring = ('Stablesford scoring system is as follows:<br>'
         '<li> 3 Points - Birdie</li>'
         '<li> 4 Points - Eagle or higher</li></ul>')
 
-st.markdown(scoring)
+st.markdown(scoring,unsafe_allow_html=True)
