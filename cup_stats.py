@@ -88,4 +88,16 @@ fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
 )
 st.altair_chart(fig_5_layer, use_container_width=True)
 
-st.write(round_par)
+#Fig 3 - Stableford score for each player for each hole on specified course
+round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['player_id'] == player_box), ['player_id','course_name','par','stableford_score','hole_number']])
+#st.write(round_par)
+fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
+    x = 'hole_number', y = 'par'
+)
+fig5_score = alt.Chart(round_par).mark_line(size=5,color='orange').encode(
+    x = 'hole_number', y = 'stableford_score'
+)
+fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
+    y = 'independent'
+)
+st.altair_chart(fig_5_layer, use_container_width=True)
