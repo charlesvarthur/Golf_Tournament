@@ -11,7 +11,6 @@ import altair as alt
 #App basic config
 st.set_page_config(page_title="Sadomasochism Golf Cup",
                     page_icon=":bar_chart:",
-                    layout="wide"
                     )
 
 st.header('Sadomasochism Cup')
