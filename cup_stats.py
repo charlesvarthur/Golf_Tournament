@@ -70,7 +70,7 @@ round_dates = round_dates['round_date'].values.tolist()
 datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
 
 #Select box for player id
-player_id = pd.DataFrame(full_stats.loc[full_stats['player_id']]).drop_duplicates().reset_index(drop=True)
+player_id = pd.DataFrame(full_stats.loc[:,['player_id']]).drop_duplicates().reset_index(drop=True)
 player_id = player_id['player_id'].values.tolist()
 datebox=st.selectbox('Which date would you like scores from?', player_id[:])
 
