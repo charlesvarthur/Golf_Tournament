@@ -47,9 +47,8 @@ for rows in full_stats['score_vs_par']:
 
 full_with_stableford = pd.DataFrame(full_stats)
 full_with_stableford['stableford_score'] = stableford
-st.write(full_stats)
-st.write(full_with_stableford)
-
+#st.write(full_stats)
+#st.write(full_with_stableford)
 
 player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id'],as_index=False).sum()
 player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
@@ -57,8 +56,6 @@ player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='c
 ps2 = player_scores.set_index('Player ID', append=False)
 st.subheader('Tournament Table')
 st.dataframe(ps2, use_container_width=True)
-
-
 
 #Select box for the course names
 course_names = pd.DataFrame(full_stats.loc[:,['course_name']].sort_values(by=['course_name'],ascending=True)).drop_duplicates().reset_index(drop=True)
