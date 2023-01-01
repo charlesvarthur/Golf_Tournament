@@ -24,7 +24,7 @@ st.markdown(scoring,unsafe_allow_html=True)
 
 #Main data source
 full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_Tournament/main/cup_full_stats.csv')
-st.write(full_stats.head(5))
+#st.write(full_stats.head(5))
 
 #Figure 1 - Leaderboard Table
 stableford = []
@@ -42,5 +42,7 @@ for rows in full_stats['score_vs_par']:
 
 full_with_stableford = pd.DataFrame(full_stats)
 full_with_stableford['stableford_score'] = stableford
+#st.write(full_with_stableford)
 
-st.write(full_with_stableford)
+player_scores = full_with_stableford[full_with_stableford['player_id','stableford'].groupby(by=['player_id']).sum()]
+st.write(player_scores)
