@@ -91,5 +91,5 @@ fig5_stableford = alt.Chart(round_par).mark_bar(size=5,color='orange').encode(
 )
 fig_5_layer = alt.layer(fig5_par, fig5_score, fig5_stableford).resolve_axis(
     y = 'independent'
-).configure(autosize=alt.AutoSizeParams(resize=True))
+).configure(autosize=alt.AutoSizeParams(resize=True,bandPaddingInner=0.5))
 st.altair_chart(fig_5_layer, use_container_width=True)
