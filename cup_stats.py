@@ -79,13 +79,13 @@ round_par = pd.DataFrame(full_stats.loc[(full_stats['course_name'] == course_var
 #st.write(round_par)
 fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
     x = 'hole_number', y = 'par'
-).configure_scale(bandPaddingInner=0.5)
+)
 fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
     x = 'hole_number', y = 'score'
-).configure_scale(bandPaddingInner=0.5)
+)
 fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
     y = 'independent'
-).configure_scale(bandPaddingInner=0.5)
+)
 st.altair_chart(fig_5_layer, use_container_width=True)
 
 #Fig 3 - Stableford score for each player for each hole on specified course
@@ -93,11 +93,11 @@ round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_
 #st.write(round_par)
 fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
     x = 'hole_number', y = 'par'
-).configure_scale(bandPaddingInner=0.5)
+)
 fig5_score = alt.Chart(round_par).mark_bar(size=5,color='orange').encode(
     x = 'hole_number', y = 'stableford_score'
-).configure_scale(bandPaddingInner=0.5)
+)
 fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
     y = 'independent'
-).configure_scale(bandPaddingInner=0.5)
+)
 st.altair_chart(fig_5_layer, use_container_width=True)
