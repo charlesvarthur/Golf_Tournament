@@ -80,7 +80,7 @@ player_box=st.selectbox('Which date would you like scores from?', player_select[
 st.subheader('Individual Round Stats')
 round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['player_id'] == player_box), ['player_id','course_name','par','score','stableford_score','hole_number']])
 #st.write(round_par)
-fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
+fig5_par = alt.Chart(round_par).mark_bar(size=10,color='grey').encode(
     x = 'hole_number', y = 'par'
 )
 fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
