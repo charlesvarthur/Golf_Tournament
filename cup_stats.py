@@ -84,10 +84,10 @@ fig5_par = alt.Chart(round_par).mark_bar(size=10,color='grey').encode(
     x = 'hole_number', y = 'par'
 )
 fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
-    x = 'hole_number', y = 'score'
+    x = 'hole_number', y=alt.Y('score',title='score')
 )
 fig5_stableford = alt.Chart(round_par).mark_bar(size=5,color='orange').encode(
-    x = 'hole_number', y = 'stableford_score'
+    x = 'hole_number', y =alt.Y('stableford_score',title='score')
 )
 fig_5_layer = alt.layer(fig5_par, fig5_score, fig5_stableford).resolve_axis(
     y = 'independent'
