@@ -23,7 +23,7 @@ scoring = ('Stablesford scoring system is as follows:<br>'
 st.markdown(scoring,unsafe_allow_html=True) 
 
 #Main data source
-full_stats = pd.DataFrame('https://raw.githubusercontent.com/charlesvarthur/Golf_Tournament/main/cup_full_stats.csv')
+full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_Tournament/main/cup_full_stats.csv')
 st.write(full_stats.head(5))
 
 #Figure 1 - Leaderboard Table
