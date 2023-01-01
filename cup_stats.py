@@ -43,4 +43,4 @@ for rows in full_stats['score_vs_par']:
 full_with_stableford = pd.DataFrame(full_stats)
 full_with_stableford['stableford_score'] = stableford
 
-st.write(full_with_stableford.head(5))
+st.write(full_with_stableford)
