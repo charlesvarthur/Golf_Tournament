@@ -56,3 +56,30 @@ player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='c
 ps2 = player_scores.set_index('Player ID', append=False)
 st.subheader('Tournament Table')
 st.dataframe(ps2, use_container_width=True)
+
+
+
+#Select box for the course names
+course_names = pd.DataFrame(full_stats.loc[:,['course_name']].sort_values(by=['course_name'],ascending=True)).drop_duplicates().reset_index(drop=True)
+course_names = course_names['course_name'].values.tolist()
+course_var = st.selectbox('Select a course to for hole specific averages:',course_names[:])
+
+#Select box for the round dates
+round_dates = pd.DataFrame(full_stats.loc[full_stats['course_name'] == course_var, ['round_date']]).drop_duplicates().reset_index(drop=True)
+round_dates = round_dates['round_date'].values.tolist()
+datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
+
+#Fig 2 - Stroke score for each player for each hole of the specified course. 
+round_par = pd.DataFrame(full_stats.loc[(full_stats['course_name'] == course_var) & (full_stats['round_date'] == datebox), ['course_name','par','score','hole_number']])
+#st.write(round_par)
+fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
+    x = 'hole_number', y = 'par'
+)
+fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
+    x = 'hole_number', y = 'score'
+)
+fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
+    y = 'independent'
+)
+st.altair_chart(fig_5_layer, use_container_width=True)
+
