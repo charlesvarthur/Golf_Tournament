@@ -23,7 +23,7 @@ scoring = ('Stablesford scoring system is as follows:<br>'
 st.markdown(scoring,unsafe_allow_html=True) 
 
 #Main data source
-full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_Tournament/main/cup_full_stats.csv',index_col=None)
+full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_Tournament/main/cup_full_stats.csv')
 #st.write(full_stats.head(5))
 
 #Figure 1 - Leaderboard Table
@@ -46,9 +46,10 @@ full_with_stableford['stableford_score'] = stableford
 #st.write(full_with_stableford)
 
 
-player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id']).sum()
-player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
+player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id']).sum().reset_index(drop=True)
 player_scores.set_axis(['Player ID', 'Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
+player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False).reset_index(drop=True)
+
 
 st.subheader('League Table')
 st.write(player_scores)
