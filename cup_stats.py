@@ -50,7 +50,7 @@ full_with_stableford['stableford_score'] = stableford
 #st.write(full_with_stableford)
 
 
-player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id']).sum()
+player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id'],as_index=False).sum()
 player_scores.rename(columns={'sum':'Player ID','score':'Stroke Score', 'stableford':'Stableford Score'})
 player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
 player_scores.set_axis(['Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
