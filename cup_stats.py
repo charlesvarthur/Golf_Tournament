@@ -10,10 +10,11 @@ import altair as alt
 
 st.header('Sadomasochism Cup')
 st.write('Welcome to the stats page for the Sadomasochism Cup.'
-        ' Here you will find stats and statistics for head player, which will be updated throughout the tournament.')
+        ' Here you will find stats and statistics for each player, which will be updated throughout the tournament.'
+        ' We\'ll be using a more lenient variation of the stableford scoring system')
 
 
-scoring = ('Stablesford scoring system is as follows:<br>'
+scoring = ('Stableford scoring system is as follows:<br>'
         '<ul><li><strong>0 Points</strong> - Triple Bogey or higher</li>'
         '<li><strong>1 Point</strong> - Double Bogey</li>'
         '<li><strong>2 Points</strong> - Bogey</li>'
