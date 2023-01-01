@@ -64,7 +64,7 @@ st.dataframe(ps2, use_container_width=True)
 #Select box for the course names
 course_names = pd.DataFrame(full_stats.loc[:,['course_name']].sort_values(by=['course_name'],ascending=True)).drop_duplicates().reset_index(drop=True)
 course_names = course_names['course_name'].values.tolist()
-course_var = st.selectbox('Select a course to for hole specific averages:',course_names[:])
+course_var = st.selectbox('Select a course:',course_names[:])
 
 #Select box for the round dates
 round_dates = pd.DataFrame(full_stats.loc[full_stats['course_name'] == course_var, ['round_date']]).drop_duplicates().reset_index(drop=True)
