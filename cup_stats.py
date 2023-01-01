@@ -74,7 +74,7 @@ datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
 #Select box for player id
 player_select = pd.DataFrame(full_stats.loc[:,['player_id']]).drop_duplicates().reset_index(drop=True)
 player_select = player_select['player_id'].values.tolist()
-player_box=st.selectbox('Which date would you like scores from?', player_select[:])
+player_box=st.selectbox('Which players stats do you want?', player_select[:])
 
 #Fig 2 - Stableford and stroke score for each player for each hole on specified course and date.
 st.subheader('Individual Round Stats')
