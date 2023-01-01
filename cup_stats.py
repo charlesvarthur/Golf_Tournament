@@ -11,8 +11,8 @@ import altair as alt
 st.header('Sadomasochism Cup')
 st.write('Welcome to the stats page for the Sadomasochism Cup.'
         ' Here you will find stats and statistics for each player, which will be updated throughout the tournament.'
-        ' We\'ll be using a more lenient variation of the stableford scoring system to determine the tournament winner'
-        'however this page will also be displaying stroke score stats for each participating player.')
+        ' We will be using a more lenient variation of the stableford scoring system to determine the tournament winner '
+        'however this page will also be displaying stroke score stats for each participating player. This is for information only.')
 
 
 scoring = ('Stableford scoring system is as follows:<br>'
