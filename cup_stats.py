@@ -74,21 +74,7 @@ player_select = pd.DataFrame(full_stats.loc[:,['player_id']]).drop_duplicates().
 player_select = player_select['player_id'].values.tolist()
 player_box=st.selectbox('Which date would you like scores from?', player_select[:])
 
-#Fig 2 - Stroke score for each player for each hole of the specified course. 
-round_par = pd.DataFrame(full_stats.loc[(full_stats['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['player_id'] == player_box), ['player_id','course_name','par','score','hole_number']])
-#st.write(round_par)
-fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
-    x = 'hole_number', y = 'par'
-)
-fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
-    x = 'hole_number', y = 'score'
-)
-fig_5_layer = alt.layer(fig5_par, fig5_score).resolve_axis(
-    y = 'independent'
-)
-st.altair_chart(fig_5_layer, use_container_width=True)
-
-#Fig 3 - Stableford score for each player for each hole on specified course
+#Fig 2 - Stableford score and stroke score for each player for each hole on specified course
 round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['player_id'] == player_box), ['player_id','course_name','par','stableford_score','hole_number']])
 #st.write(round_par)
 fig5_par = alt.Chart(round_par).mark_bar(size=20,color='grey').encode(
