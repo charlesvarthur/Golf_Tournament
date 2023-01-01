@@ -55,4 +55,4 @@ player_scores = player_scores.sort_values(by=['stableford_score'], ascending=Fal
 player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
 ps2 = player_scores.set_index('Player ID', append=False)
 st.subheader('Tournament Table')
-st.dataframe(ps2.style.highlight_max(axis=2), use_container_width=True)
+st.dataframe(ps2, use_container_width=True)
