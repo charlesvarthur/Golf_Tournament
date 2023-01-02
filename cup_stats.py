@@ -83,7 +83,7 @@ round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_
 fig5_par = alt.Chart(round_par).mark_bar(size=10,color='grey').encode(
     x = 'hole_number', y = 'par'
 )
-fig5_score = alt.Chart(round_par).mark_line(size=5,color='pink').encode(
+fig5_score = alt.Chart(round_par).mark_line(size=3,color='pink').encode(
     x = 'hole_number', y=alt.Y('score',title='score')
 )
 fig5_stableford = alt.Chart(round_par).mark_bar(size=5,color='orange').encode(
