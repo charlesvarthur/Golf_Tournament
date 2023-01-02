@@ -2,7 +2,7 @@ DROP VIEW IF EXISTS cup_full_stats;
 CREATE OR REPLACE VIEW cup_full_stats as (
 
 SELECT 
-p.player_id,
+p.first_name,
 c.course_name,
 r.round_id,
 r.round_date,
