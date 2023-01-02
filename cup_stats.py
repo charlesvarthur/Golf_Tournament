@@ -54,7 +54,7 @@ full_with_stableford['stableford_score'] = stableford
 #st.write(full_stats)
 #st.write(full_with_stableford)
 
-player_scores = full_with_stableford.loc[:,['player_id','score','stableford_score']].groupby(by=['player_id'],as_index=False).sum()
+player_scores = full_with_stableford.loc[:,['first_name','score','stableford_score']].groupby(by=['first_name'],as_index=False).sum()
 player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
 player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
 ps2 = player_scores.set_index('Player ID', append=False)
@@ -71,14 +71,14 @@ round_dates = pd.DataFrame(full_stats.loc[full_stats['course_name'] == course_va
 round_dates = round_dates['round_date'].values.tolist()
 datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
 
-#Select box for player id
-player_select = pd.DataFrame(full_stats.loc[:,['player_id']]).drop_duplicates().reset_index(drop=True)
-player_select = player_select['player_id'].values.tolist()
+#Select box for player name
+player_select = pd.DataFrame(full_stats.loc[:,['first_name']]).drop_duplicates().reset_index(drop=True)
+player_select = player_select['first_name'].values.tolist()
 player_box=st.selectbox('Which players stats do you want?', player_select[:])
 
 #Fig 2 - Stableford and stroke score for each player for each hole on specified course and date.
 st.subheader('Individual Round Stats')
-round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['player_id'] == player_box), ['player_id','course_name','par','score','stableford_score','hole_number']])
+round_par = pd.DataFrame(full_with_stableford.loc[(full_with_stableford['course_name'] == course_var) & (full_stats['round_date'] == datebox) & (full_stats['first_name'] == player_box), ['first_name','course_name','par','score','stableford_score','hole_number']])
 #st.write(round_par)
 fig5_par = alt.Chart(round_par).mark_bar(size=10,color='grey').encode(
     x = 'hole_number', y = 'par'
