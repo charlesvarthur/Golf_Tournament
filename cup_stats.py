@@ -56,8 +56,8 @@ full_with_stableford['stableford_score'] = stableford
 
 player_scores = full_with_stableford.loc[:,['first_name','score','stableford_score']].groupby(by=['first_name'],as_index=False).sum()
 player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
-player_scores.set_axis(['Player ID','Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
-ps2 = player_scores.set_index('Player ID', append=False)
+player_scores.set_axis(['Player Name','Stroke Score', 'Stableford Score'], axis='columns', inplace=True)
+ps2 = player_scores.set_index('Player Name', append=False)
 st.subheader('Tournament Table')
 st.dataframe(ps2, use_container_width=True)
 
@@ -71,7 +71,7 @@ round_dates = pd.DataFrame(full_stats.loc[full_stats['course_name'] == course_va
 round_dates = round_dates['round_date'].values.tolist()
 datebox=st.selectbox('Which date would you like scores from?', round_dates[:])
 
-#Select box for player name
+#Select box for player id
 player_select = pd.DataFrame(full_stats.loc[:,['first_name']]).drop_duplicates().reset_index(drop=True)
 player_select = player_select['first_name'].values.tolist()
 player_box=st.selectbox('Which players stats do you want?', player_select[:])
