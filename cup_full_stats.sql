@@ -21,7 +21,7 @@ JOIN round r
 ON r.round_id=s.round_id
 JOIN player p 
 ON p.player_id=s.player_id
-WHERE r.round_id=12
+WHERE r.round_id in(12,29)
 order by 1,4,5
 );
 SELECT * FROM cup_full_stats;
