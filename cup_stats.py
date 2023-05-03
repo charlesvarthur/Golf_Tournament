@@ -57,7 +57,7 @@ full_with_stableford['stableford_score'] = stableford
 player_scores = full_with_stableford.loc[:,['first_name','score','stableford_score']].groupby(by=['first_name'],as_index=False).sum()
 player_scores = player_scores.sort_values(by=['stableford_score'], ascending=False)
 player_scores.set_axis(['Player Name','Stroke Score', 'Stableford Score'], axis='columns')
-ps2 = player_scores.set_index('Player Name', append=False)
+ps2 = player_scores#.set_index('Player Name', append=False)
 st.subheader('Tournament Table')
 st.dataframe(ps2, use_container_width=True)
 
