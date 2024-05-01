@@ -2,6 +2,7 @@ DROP VIEW IF EXISTS cup_full_stats;
 CREATE OR REPLACE VIEW cup_full_stats as (
 
 SELECT 
+p.player_id,
 p.first_name,
 c.course_name,
 r.round_id,
@@ -21,7 +22,7 @@ JOIN round r
 ON r.round_id=s.round_id
 JOIN player p 
 ON p.player_id=s.player_id
-WHERE r.round_id in(12,29)
+WHERE r.round_id in(46)
 order by 1,4,5
 );
 SELECT * FROM cup_full_stats;
