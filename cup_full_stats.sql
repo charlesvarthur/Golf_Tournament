@@ -25,4 +25,18 @@ ON p.player_id=s.player_id
 WHERE r.round_id in(46)
 order by 1,4,5
 );
+
 SELECT * FROM cup_full_stats;
+
+-- SELECT *,
+-- CASE 
+-- WHEN player_id IN (5,6) THEN par+2
+-- WHEN player_id=2 AND hole_number <=14 THEN par+2
+-- WHEN player_id=2 AND hole_number >14 THEN par+1
+-- WHEN player_id IN (3,4) AND stroke_index <=10 THEN par+2
+-- WHEN player_id IN (3,4) AND stroke_index >10 THEN par+1
+-- WHEN player_id IN (1,7) AND stroke_index <=8 THEN par+2
+-- WHEN player_id IN (1,7) AND stroke_index >8 THEN par+1
+-- WHEN player_id=8 THEN par+1
+-- END AS par_adjusted
+-- FROM cup_full_stats;
