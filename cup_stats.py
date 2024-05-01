@@ -38,7 +38,7 @@ full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_
 
 #Figure 1 - Leaderboard Table
 stableford = []
-for rows in full_stats['score_vs_par']:
+for rows in full_stats['par_adjusted']:
     if rows >= 2:
         stableford.append(0)
     elif rows == 1:
