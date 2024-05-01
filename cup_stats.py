@@ -44,7 +44,7 @@ for rows in full_stats['score_vs_adjusted']:
     elif rows == 1:
         stableford.append(1)
     elif rows == 0:
-        stableford.append(2)
+        stableford.append()
     elif rows == int('-1'):
         stableford.append(3)
     elif rows == int('-2'):
