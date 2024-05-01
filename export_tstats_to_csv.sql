@@ -1,1 +1,1 @@
-COPY (select * from cup_full_stats) TO '/Users/charlesarthur/Documents/Data_Projects/Golf_Tournament/cup_full_stats.csv' DELIMITER ',' CSV HEADER;
+COPY (select * from cup_full_stats_hcs) TO '/Users/charlesarthur/Documents/Data_Projects/Golf_Tournament/cup_full_stats.csv' DELIMITER ',' CSV HEADER;
