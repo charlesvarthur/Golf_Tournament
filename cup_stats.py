@@ -14,19 +14,21 @@ st.set_page_config(page_title="Sadomasochism Golf Cup",
                     )
 
 st.header('Sadomasochism Cup')
-st.write('Welcome to the stats page for the Sadomasochism Cup.'
+st.write('Welcome to the stats page for the Sadomasochism Cup 2024!'
         ' Here you will find stats and statistics for each player, which will be updated throughout the tournament.'
-        ' We will be using a more lenient variation of the stableford scoring system to determine the tournament winner '
+        ' This year, we will be using handicaps, and a standard stableford scoring system to determine the tournament winner '
         'however this page will also be displaying stroke score stats for each participating player. This is for information only.')
 
 
 st.subheader('Scoring')
 scoring = ('Stableford scoring system is as follows:<br>'
-        '<ul><li><strong>0 Points</strong> - Triple Bogey or higher</li>'
-        '<li><strong>1 Point</strong> - Double Bogey</li>'
-        '<li><strong>2 Points</strong> - Bogey</li>'
-        '<li><strong>3 Points</strong> - Par </li>'
-        '<li><strong>4 Points</strong> - Birdie or higher</li></ul>')
+        '<ul><li><strong>0 Points</strong> - Double Bogey or higher</li>'
+        '<li><strong>1 Point</strong> - Bogey</li>'
+        '<li><strong>2 Points</strong> - Par</li>'
+        '<li><strong>3 Points</strong> - Birdie</li>'
+        '<li><strong>4 Points</strong> - Eagle</li>'
+        '<li><strong>5 Points</strong> - Albatross</li>'
+        '<li><strong>10 Points</strong> - Hole In One</li></ul>')
 
 st.markdown(scoring,unsafe_allow_html=True) 
 
@@ -37,16 +39,20 @@ full_stats = pd.read_csv('https://raw.githubusercontent.com/charlesvarthur/Golf_
 #Figure 1 - Leaderboard Table
 stableford = []
 for rows in full_stats['score_vs_par']:
-    if rows >= 3:
+    if rows >= 2:
         stableford.append(0)
-    elif rows == 2:
-        stableford.append(1)
     elif rows == 1:
-        stableford.append(2)
+        stableford.append(1)
     elif rows == 0:
+        stableford.append(2)
+    elif rows == int('-1'):
         stableford.append(3)
-    elif rows <= int('-1'):
+    elif rows == int('-2'):
         stableford.append(4) 
+    elif rows == int('-3'):
+        stableford.append(5)
+    elif rows <= int('-4'):
+        stableford.append(10) 
 
 
 full_with_stableford = pd.DataFrame(full_stats)
