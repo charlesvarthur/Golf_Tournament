@@ -1,6 +1,8 @@
+DROP VIEW IF EXISTS cup_full_stats_hcs;
+DROP VIEW IF EXISTS cup_full_stats_hc;
 DROP VIEW IF EXISTS cup_full_stats;
-CREATE OR REPLACE VIEW cup_full_stats as (
 
+CREATE OR REPLACE VIEW cup_full_stats as (
 SELECT 
 p.player_id,
 p.first_name,
@@ -26,8 +28,6 @@ order by 1,4,5
 );
 
 --SELECT * FROM cup_full_stats;
-
-DROP VIEW IF EXISTS cup_full_stats_hc;
 CREATE OR REPLACE VIEW cup_full_stats_hc as (
 SELECT *,
 CASE 
@@ -42,8 +42,6 @@ WHEN player_id=8 THEN par+1
 END AS par_adjusted
 FROM cup_full_stats);
 
-
-DROP VIEW IF EXISTS cup_full_stats_hcs;
 CREATE OR REPLACE VIEW cup_full_stats_hcs as (
 SELECT *,
 score - par_adjusted as score_vs_adjusted
